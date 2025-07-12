@@ -1,2 +1,43 @@
-# Javscript-Projects
+# 🚀 JavaScript Projects Collection
 
+This repository contains a collection of front-end practice projects built using **HTML**, **CSS**, **Bootstrap**, and **Vanilla JavaScript**. Each project is designed to improve layout, interactivity, and real-world UI skills step-by-step — from static pages to API integration.
+
+---
+
+## 📁 Project List
+
+### 1. 🏎️ Tesla Homepage Clone (with JavaScript Navbar)
+> A responsive clone of the Tesla homepage with JavaScript-powered navigation.  
+> Features include a dynamic dropdown menu with images and a mobile nav toggle.
+
+📂 Folder: `/tesla-homepage-clone`  
+🔧 Tech: HTML, CSS, Bootstrap 5, JavaScript
+
+---
+
+### 2. 🌍 Travel Booking Website
+> A mock travel agency website with a responsive layout and an interactive booking form.  
+> Includes JavaScript form validation and UI effects.
+
+📂 Folder: `/travel-booking-site`  
+🔧 Tech: HTML, CSS, Bootstrap 5, JavaScript
+
+---
+
+### 3. 🌦️ Weather App (API Project)
+> A weather forecast app using the OpenWeather API.  
+> Search any city and get real-time weather data using `fetch()` and `async/await`.
+
+📂 Folder: `/weather-app`  
+🔧 Tech: HTML, CSS, Bootstrap, JavaScript, OpenWeather API
+
+---
+
+## 📌 Goal of This Repo
+
+- Master frontend fundamentals
+- Build real-world UIs
+- Learn DOM manipulation and form handling
+- Understand working with APIs before moving to React
+
+---
