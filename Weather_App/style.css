@@ -1,11 +1,10 @@
 body {
   margin: 0;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Book Antiqua", Palatino, serif;
 }
 
-header {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.nav_item_hover:hover{
+    background-color:#D8D8D9;
+    
+    
 }
