@@ -1,11 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body
+   class="bg-light d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow" style="min-width: 350px">
+      <h3 class="text-center mb-3">Login</h3>
+      <input
+        type="email"
+        id="email"
+        class="form-control mb-2"
+        placeholder="Email"
+      />
+      <input
+        type="password"
+        id="password"
+        class="form-control mb-3"
+        placeholder="Password"
+      />
+      <button class="btn btn-primary w-100" onclick="login()">Login</button>
+      <p class="text-center mt-3">
+        Don't have an account? <a href="register.html">Register</a>
+      </p>
+    </div>
+
+    <script>
+      function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (!email || !password) {
+          alert("Both fields are required.");
+          return;
+        }
+
+        const storedUser = JSON.parse(localStorage.getItem("weatherUser"));
+
+        if (!storedUser) {
+          alert("No user found. Please register first.");
+          return;
+        }
+
+        if (email === storedUser.email && password === storedUser.password) {
+          alert("Login successful!");
+          window.location.href = "index.html"; // Redirect to main dashboard
+        } else {
+          alert("Invalid email or password.");
+        }
+      }
+    </script>
+  </body>
 </html>
