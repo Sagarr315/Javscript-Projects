@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  font-family: "Book Antiqua", Palatino, serif;
+}
+
+.nav_item_hover:hover{
+    background-color:#D8D8D9;
+    
+    
+}
