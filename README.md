@@ -6,16 +6,7 @@ This repository contains a collection of front-end practice projects built using
 
 ## 📁 Project List
 
-### 1. 🏎️ Tesla Homepage Clone (with JavaScript Navbar)
-> A responsive clone of the Tesla homepage with JavaScript-powered navigation.  
-> Features include a dynamic dropdown menu with images and a mobile nav toggle.
-
-📂 Folder: `/tesla-homepage-clone`  
-🔧 Tech: HTML, CSS, Bootstrap 5, JavaScript
-
----
-
-### 2. 🌍 Travel Booking Website
+### 1. 🌍 Travel Booking Website
 > A mock travel agency website with a responsive layout and an interactive booking form.  
 > Includes JavaScript form validation and UI effects.
 
@@ -24,7 +15,7 @@ This repository contains a collection of front-end practice projects built using
 
 ---
 
-### 3. 🌦️ Weather App (API Project)
+### 2. 🌦️ Weather App (API Project)
 > A weather forecast app using the OpenWeather API.  
 > Search any city and get real-time weather data using `fetch()` and `async/await`.
 
@@ -35,9 +26,7 @@ This repository contains a collection of front-end practice projects built using
 
 ## 📌 Goal of This Repo
 
-- Master frontend fundamentals
-- Build real-world UIs
-- Learn DOM manipulation and form handling
+- Master frontend fundamentals  
+- Build real-world UIs  
+- Learn DOM manipulation and form handling  
 - Understand working with APIs before moving to React
-
----
