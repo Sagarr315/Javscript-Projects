@@ -1,0 +1,17 @@
+
+body {
+  overflow-x: hidden;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item img {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+
+
+
