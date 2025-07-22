@@ -126,9 +126,80 @@
   </div>
 </div>
 
-<!--new section-->
-    <div class="container-fluid"> Our Reviews </div>
+<!--popular section-->
+<div class="container my-5" id="packages">
+  <h2 class="text-center fw-bold mb-4">Popular Packages</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="images/goa.jpg" class="card-img-top" alt="Goa" />
+        <div class="card-body">
+          <h5 class="card-title">Goa Beach Tour</h5>
+          <p class="card-text">3 Nights | ₹9,999 | Hotel + Sightseeing</p>
+          <a href="#" class="btn btn-primary">Book Now</a>
+        </div>
+      </div>
+    </div>
+    <!-- content to add  -->
+  </div>
+</div>
 
+<!--Booking Form Section-->
+<div class="container my-5" id="booking">
+  <h2 class="text-center fw-bold mb-4">Book Your Trip</h2>
+  <form id="bookingForm" class="row g-3">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Full Name" required />
+    </div>
+    <div class="col-md-6">
+      <input type="email" class="form-control" placeholder="Email" required />
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" required>
+        <option value="">Choose Destination</option>
+        <option value="goa">Goa</option>
+        <option value="ladakh">Ladakh</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <input type="date" class="form-control" required />
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-success w-100">Submit Booking</button>
+    </div>
+  </form>
+</div>
+
+<!--review section-->
+    <div class="container-fluid " id="review"> <h2 class="text-center fw-bold mb-4">What Travelers Say</h2>
+  <div class="row text-center">
+    <div class="col-md-4">
+      <div class="card p-3">
+        <p>“Amazing experience! Well organized trip.”</p>
+        <h6>- xyz</h6>
+      </div>
+    </div>
+    <!-- content to add -->
+  </div></div>
+
+  <!--contact section-->
+<div class="container my-5" id="contact">
+  <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>Email:</strong> TravelWebsite@example.com</p>
+      <p><strong>Phone:</strong> +91 9876543210</p>
+    </div>
+    <div class="col-md-6">
+      <form>
+        <input type="text" class="form-control mb-2" placeholder="Your Name" required />
+        <input type="email" class="form-control mb-2" placeholder="Your Email" required />
+        <textarea class="form-control mb-2" rows="3" placeholder="Your Message" required></textarea>
+        <button class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
 
     <!--Footer-->
     <div
