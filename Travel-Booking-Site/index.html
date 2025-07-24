@@ -17,6 +17,7 @@
       href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
       rel="stylesheet"
     />
+    <script src="script.js"></script>
   </head>
   <body>
     <!--promo code-->
@@ -59,19 +60,19 @@
       <div class="d-none d-lg-block my-2 fw-semibold">
         <ul class="nav gap-3 me-3 d-none d-lg-flex">
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Home</a>
+            <a class="nav-link text-dark" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Packages</a>
+            <a class="nav-link text-dark" href="#packages">Packages</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Booking</a>
+            <a class="nav-link text-dark" href="#booking">Booking</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Review</a>
+            <a class="nav-link text-dark" href="review.html">Review</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#">Contact</a>
+            <a class="nav-link text-dark" href="#contact">Contact</a>
           </li>
           <li class="nav-item fs-4 my-1">
             <i class="bx bx-moon theme-toggle" style="cursor: pointer"></i>
@@ -177,7 +178,7 @@
     </div>
 
     <!--popular section-->
-    <div class="container my-5" id="packages">
+    <div class="container my-5" id="packages" id="packages">
       <h2 class="text-center fw-bold mb-4">Popular Packages</h2>
       <!-- For large screens (grid, centered, no scroll) -->
       <div class="row justify-content-center d-none d-lg-flex">
@@ -308,6 +309,7 @@
             type="text"
             class="form-control"
             placeholder="Full Name"
+            id="FullName"
             required
           />
         </div>
@@ -316,18 +318,24 @@
             type="email"
             class="form-control"
             placeholder="Email"
+            id="Email"
             required
           />
         </div>
         <div class="col-md-6">
-          <select class="form-select" required>
+          <select class="form-select" id="destination" required>
             <option value="">Choose Destination</option>
-            <option value="goa">Goa</option>
-            <option value="ladakh">Ladakh</option>
+            <option value="Jyotirlinga Darshan">Jyotirlinga Darshan</option>
+            <option value="Kerala Backwater Escape">
+              Kerala Backwater Escape
+            </option>
+            <option value="Kashmir Snow Adventure">
+              Kashmir Snow Adventure
+            </option>
           </select>
         </div>
         <div class="col-md-6">
-          <input type="date" class="form-control" required />
+          <input type="date" class="form-control" id="traveldate" required />
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-success w-100">
@@ -335,20 +343,11 @@
           </button>
         </div>
       </form>
-    </div>
-
+   
     <!--review section-->
-    <div class="container-fluid" id="review">
+    <div class="container-fluid py-5" id="review">
       <h2 class="text-center fw-bold mb-4">What Travelers Say</h2>
-      <div class="row text-center">
-        <div class="col-md-4">
-          <div class="card p-3">
-            <p>“Amazing experience! Well organized trip.”</p>
-            <h6>- xyz</h6>
-          </div>
-        </div>
-        <!-- content to add -->
-      </div>
+      <div class="row g-4 justify-content-centre" id="reviewsContainer"></div>
     </div>
 
     <!--contact section-->
@@ -431,6 +430,24 @@
 
       menuToggle.addEventListener("click", () => {
         mobileNav.classList.toggle("d-none");
+      });
+
+      //reviews displaying on the ui from localstorage
+      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+      const container = document.getElementById("reviewsContainer");
+
+      reviews.forEach((r) => {
+        const col = document.createElement("div");
+        col.className = "col-12 col-sm-6 col-md-4"; // responsive columns
+
+        col.innerHTML = `
+      <div class="card h-100 shadow-sm p-3">
+        <p>“${r.review}”</p>
+        <h6 class="text-end">- ${r.name}</h6>
+      </div>
+    `;
+
+        container.appendChild(col);
       });
     </script>
   </body>
