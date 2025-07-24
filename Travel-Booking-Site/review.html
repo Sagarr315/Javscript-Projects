@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="script.js"></script>
+    <style>
+      body {
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+      }
+
+      .review-form {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .review-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .review-form .form-control {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .review-form .form-control:focus {
+        background-color: #fff;
+        color: #000;
+        border-color: #007bff;
+      }
+
+      .btn-submit {
+        width: 100%;
+      }
+
+      /* === Dark Mode === */
+      body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+      }
+
+      body.dark-mode .review-form {
+        background-color: #1e1e1e;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      }
+
+      body.dark-mode .review-form h2 {
+        color: #ffffff;
+      }
+
+      body.dark-mode .review-form .form-control {
+        background-color: #2c2c2c;
+        border: 1px solid #444;
+        color: #ffffff;
+      }
+
+      body.dark-mode .review-form .form-control:focus {
+        background-color: #333;
+        color: #fff;
+        border-color: #66afe9;
+      }
+
+      body.dark-mode .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      body.dark-mode .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+      }
+
+      body.dark-mode .review-form .form-control::placeholder {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!--header-->
+    <div
+      class="container-fluid d-flex justify-content-between align-items-center fw-semibold bg-white sticky-top"
+    >
+      <div class="ms-2 my-3 fs-5">
+        <i class="bx bx-trip"></i> Travel-Website
+      </div>
+      <div
+        style="position: relative; width: 43%"
+        class="d-none d-lg-flex justify-content-center"
+      >
+        <!--search bar-->
+        <i
+          class="bi bi-search"
+          style="
+            position: absolute;
+            left: 89px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: gray;
+          "
+        ></i>
+        <input
+          type="search"
+          class="form-control w-75 rounded-pill"
+          placeholder="Search..."
+          style="padding-left: 40px; background-color: #d8d8d9; margin: 8px"
+        />
+      </div>
+      <!--navbar-->
+      <div class="d-none d-lg-block my-2 fw-semibold">
+        <ul class="nav gap-3 me-3 d-none d-lg-flex">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#packages">Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#booking">Booking</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="review.html">Review</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item fs-4 my-1">
+            <i class="bx bx-moon theme-toggle" style="cursor: pointer"></i>
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex d-lg-none align-items-center gap-3 me-3 fs-4">
+        <i class="bx bx-moon theme-toggle" style="cursor: pointer"></i>
+        <i class="bi bi-list" id="menu-toggle" style="cursor: pointer"></i>
+
+        <!-- Mobile Nav (hidden by default) -->
+        <div
+          class="mobile-nav d-lg-none d-none flex-column text-center bg-white p-3"
+          id="mobileNav"
+        >
+          <a class="nav-link text-dark" href="#">Home</a>
+          <a class="nav-link text-dark" href="#">Packages</a>
+          <a class="nav-link text-dark" href="#">Booking</a>
+          <a class="nav-link text-dark" href="#">Review</a>
+          <a class="nav-link text-dark" href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!--review writing section-->
+    <div class="review-form">
+      <h2>Write a Review</h2>
+      <form id="reviewForm">
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Your Name"
+          required
+        />
+        <textarea
+          id="review"
+          class="form-control"
+          placeholder="Write your review here..."
+          rows="4"
+          required
+        ></textarea>
+        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- JavaScript to save to localStorage -->
+    <script>
+      document
+        .getElementById("reviewForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const review = document.getElementById("review").value.trim();
+
+          if (name && review) {
+            const reviewData = { name, review };
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            reviews.push(reviewData);
+            localStorage.setItem("reviews", JSON.stringify(reviews));
+
+            alert("Review submitted successfully!");
+            this.reset(); // clear form
+            window.location.href = "index.html"; // or wherever you want to go
+          } else {
+            alert("Please fill in all fields.");
+          }
+        });
+      localStorage.clear();
+    </script>
+    <!--Footer-->
+    <div
+      class="footer-theme d-flex flex-column justify-content-center w-100"
+      style="bottom: 0; position: fixed"
+    >
+      <p class="fw-semibold text-center fs-4">Follow Us On</p>
+      <div class="d-flex justify-content-center gap-3 fs-4">
+        <a href="https://www.instagram.com" class="icon-theme"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a href="https://www.facebook.com" class="icon-theme"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a href="https://www.twitter.com" class="icon-theme"
+          ><i class="bi bi-twitter-x"></i
+        ></a>
+      </div>
+      <span class="text-center fw-semibold"
+        >@All Rights Reserved,Developed by Sagar Bhor.</span
+      >
+    </div>
+
+    <script>
+      const toggleBtns = document.querySelectorAll(".theme-toggle");
+      const body = document.body;
+
+      toggleBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          body.classList.toggle("dark-mode");
+
+          toggleBtns.forEach((icon) => {
+            if (body.classList.contains("dark-mode")) {
+              icon.classList.replace("bx-moon", "bx-sun");
+            } else {
+              icon.classList.replace("bx-sun", "bx-moon");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
