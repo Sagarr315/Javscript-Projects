@@ -133,3 +133,35 @@ body:not(.dark-mode) .package-card {
     max-width: 100%;
   }
 }
+.dark-mode .form-control::placeholder {
+  color: white;
+}
+
+/* Mobile nav base styling */
+#mobileNav {
+  position: fixed;
+  font-size: 15px;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100vh;
+  background-color: #ffffff; /* light mode default */
+  z-index: 999;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Light mode nav link color */
+#mobileNav .nav-link {
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Dark mode support */
+body.dark-mode #mobileNav {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode #mobileNav .nav-link {
+  color: #fff;
+}
