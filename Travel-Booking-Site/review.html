@@ -161,7 +161,7 @@
           class="mobile-nav d-lg-none d-none flex-column text-center bg-white p-3"
           id="mobileNav"
         >
-          <a class="nav-link text-dark" href="#">Home</a>
+          <a class="nav-link text-dark" href="index.html">Home</a>
           <a class="nav-link text-dark" href="#">Packages</a>
           <a class="nav-link text-dark" href="#">Booking</a>
           <a class="nav-link text-dark" href="#">Review</a>
@@ -254,6 +254,19 @@
               icon.classList.replace("bx-sun", "bx-moon");
             }
           });
+        });
+      });
+       // to show the navbar
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileNav = document.getElementById("mobileNav");
+
+      menuToggle.addEventListener("click", () => {
+        mobileNav.classList.toggle("d-none");
+      });
+      // Auto-close menu when a link is clicked
+      document.querySelectorAll("#mobileNav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.add("d-none");
         });
       });
     </script>
