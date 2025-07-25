@@ -63,6 +63,11 @@ body {
   color: #212529; 
 }
 
+.footer-theme {
+  background-color:#D8D8D9; 
+  color: black; 
+}
+
 
 .dark-mode .footer-theme {
   background-color:#2C2C2C; 
