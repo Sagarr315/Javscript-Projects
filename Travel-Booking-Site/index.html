@@ -88,11 +88,11 @@
           class="mobile-nav d-lg-none d-none flex-column text-center bg-white p-3"
           id="mobileNav"
         >
-          <a class="nav-link text-dark" href="#">Home</a>
-          <a class="nav-link text-dark" href="#">Packages</a>
-          <a class="nav-link text-dark" href="#">Booking</a>
-          <a class="nav-link text-dark" href="#">Review</a>
-          <a class="nav-link text-dark" href="#">Contact</a>
+          <a class="nav-link text-dark" href="#index.html">Home</a>
+          <a class="nav-link text-dark" href="#packages">Packages</a>
+          <a class="nav-link text-dark" href="#booking">Booking</a>
+          <a class="nav-link text-dark" href="review.html">Review</a>
+          <a class="nav-link text-dark" href="#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -195,7 +195,12 @@
             <div class="card-body">
               <h5 class="card-title">Jyotirlinga Darshan</h5>
               <p class="card-text">5 Days | ₹12,999 | 3 Temples + Stay</p>
-              <a href="#" class="btn btn-primary">Book Now</a>
+              <a
+                href="#booking"
+                class="btn btn-primary"
+                onclick="bookPackage('Jyotirlinga Darshan')"
+                >Book Now</a
+              >
             </div>
           </div>
         </div>
@@ -213,7 +218,12 @@
             <div class="card-body">
               <h5 class="card-title">Kerala Backwater Escape</h5>
               <p class="card-text">4 Nights | ₹11,500 | Houseboat + Munnar</p>
-              <a href="#" class="btn btn-primary">Book Now</a>
+              <a
+                href="#booking"
+                class="btn btn-primary"
+                onclick="bookPackage('Kerala Backwater Escape')"
+                >Book Now</a
+              >
             </div>
           </div>
         </div>
@@ -233,7 +243,12 @@
               <p class="card-text">
                 6 Days | ₹14,999 | Gulmarg + Snow Bike Ride
               </p>
-              <a href="#" class="btn btn-primary">Book Now</a>
+              <a
+                href="#booking"
+                class="btn btn-primary"
+                onclick="bookPackage('Kashmir Snow Adventure')"
+                >Book Now</a
+              >
             </div>
           </div>
         </div>
@@ -256,7 +271,12 @@
           <div class="card-body">
             <h5 class="card-title">Jyotirlinga Darshan</h5>
             <p class="card-text">5 Days | ₹12,999 | 3 Temples + Stay</p>
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a
+              href="#booking"
+              class="btn btn-primary"
+              onclick="bookPackage('Jyotirlinga Darshan')"
+              >Book Now</a
+            >
           </div>
         </div>
 
@@ -275,7 +295,12 @@
           <div class="card-body">
             <h5 class="card-title">Kerala Backwater Escape</h5>
             <p class="card-text">4 Nights | ₹11,500 | Houseboat + Munnar</p>
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a
+              href="#booking"
+              class="btn btn-primary"
+              onclick="bookPackage('Kerala Backwater Escape')"
+              >Book Now</a
+            >
           </div>
         </div>
 
@@ -294,7 +319,12 @@
           <div class="card-body">
             <h5 class="card-title">Kashmir Snow Adventure</h5>
             <p class="card-text">6 Days | ₹14,999 | Gulmarg + Snow Bike Ride</p>
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a
+              href="#booking"
+              class="btn btn-primary"
+              onclick="bookPackage('Kashmir Snow Adventure')"
+              >Book Now</a
+            >
           </div>
         </div>
       </div>
@@ -309,7 +339,7 @@
             type="text"
             class="form-control"
             placeholder="Full Name"
-            id="FullName"
+            id="fullName"
             required
           />
         </div>
@@ -318,7 +348,7 @@
             type="email"
             class="form-control"
             placeholder="Email"
-            id="Email"
+            id="email"
             required
           />
         </div>
@@ -335,7 +365,7 @@
           </select>
         </div>
         <div class="col-md-6">
-          <input type="date" class="form-control" id="traveldate" required />
+          <input type="date" class="form-control" id="travelDate" required />
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-success w-100">
@@ -343,7 +373,8 @@
           </button>
         </div>
       </form>
-   
+    </div>
+
     <!--review section-->
     <div class="container-fluid py-5" id="review">
       <h2 class="text-center fw-bold mb-4">What Travelers Say</h2>
@@ -351,35 +382,40 @@
     </div>
 
     <!--contact section-->
-    <div class="container my-5" id="contact">
-      <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <p><strong>Email:</strong> TravelWebsite@example.com</p>
-          <p><strong>Phone:</strong> +91 9876543210</p>
-        </div>
-        <div class="col-md-6">
-          <form>
-            <input
-              type="text"
-              class="form-control mb-2"
-              placeholder="Your Name"
-              required
-            />
-            <input
-              type="email"
-              class="form-control mb-2"
-              placeholder="Your Email"
-              required
-            />
-            <textarea
-              class="form-control mb-2"
-              rows="3"
-              placeholder="Your Message"
-              required
-            ></textarea>
-            <button class="btn btn-primary">Send</button>
-          </form>
+    <div
+      class="container align-items-center justify-content-center my-5"
+      id="contact"
+    >
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Get In Touch</h2>
+        <div class="row justify-content-center text-center text-md-start">
+          <div class="col-md-6">
+            <p><strong>Email:</strong> TravelWebsite@example.com</p>
+            <p><strong>Phone:</strong> +91 9876543210</p>
+          </div>
+          <div class="col-md-5 mb-4">
+            <form>
+              <input
+                type="text"
+                class="form-control mb-2"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                class="form-control mb-2"
+                placeholder="Your Email"
+                required
+              />
+              <textarea
+                class="form-control mb-2"
+                rows="3"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <button class="btn btn-primary">Send</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -425,11 +461,18 @@
         });
       });
 
+      // to show the navbar
       const menuToggle = document.getElementById("menu-toggle");
       const mobileNav = document.getElementById("mobileNav");
 
       menuToggle.addEventListener("click", () => {
         mobileNav.classList.toggle("d-none");
+      });
+      // Auto-close menu when a link is clicked
+      document.querySelectorAll("#mobileNav a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileNav.classList.add("d-none");
+        });
       });
 
       //reviews displaying on the ui from localstorage
@@ -438,7 +481,7 @@
 
       reviews.forEach((r) => {
         const col = document.createElement("div");
-        col.className = "col-12 col-sm-6 col-md-4"; // responsive columns
+        col.className = "col-12 col-sm-6 col-md-4"; // for responsive columns
 
         col.innerHTML = `
       <div class="card h-100 shadow-sm p-3">
@@ -450,6 +493,84 @@
         container.appendChild(col);
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+      //  Auto-select package on "Book Now" click
+      function bookPackage(packageName) {
+        localStorage.setItem("selectedPackage", packageName);
+        const destSelect = document.getElementById("destination");
+        if (destSelect) destSelect.value = packageName;
+
+        //  scroll to booking form
+        document
+          .getElementById("booking")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Handle form submit
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("fullName").value;
+          const email = document.getElementById("email").value;
+          const destination = document.getElementById("destination").value;
+          const date = document.getElementById("travelDate").value;
+
+          const bookingData = { name, email, destination, date };
+
+          // Save data to localStorage
+          localStorage.setItem("bookingDetails", JSON.stringify(bookingData));
+
+          // Show success message
+          alert(` Booking for ${destination} submitted successfully!`);
+
+          // After 3 seconds, ask for download
+          setTimeout(() => {
+            const confirmDownload = confirm(
+              "Do you want to download the invoice?"
+            );
+            if (confirmDownload) {
+              generateInvoice(bookingData); // Generate PDF
+            }
+
+            localStorage.removeItem("selectedPackage");
+            // Refresh after 1s delay
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }, 3000);
+        });
+
+      // 3. PDF Invoice Generator
+      async function generateInvoice(data) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(18);
+        doc.text("Travel Booking Invoice", 20, 20);
+
+        doc.setFontSize(12);
+        doc.text(`Name: ${data.name}`, 20, 40);
+        doc.text(`Email: ${data.email}`, 20, 50);
+        doc.text(`Destination: ${data.destination}`, 20, 60);
+        doc.text(`Travel Date: ${data.date}`, 20, 70);
+        doc.text("Status: Confirmed", 20, 80);
+        doc.text("Thank you for booking with us!", 20, 100);
+
+        doc.save("booking-invoice.pdf");
+      }
+
+      // 4. Auto-fill destination from localStorage on page load (optional)
+      window.onload = function () {
+        const selectedPackage = localStorage.getItem("selectedPackage");
+        if (selectedPackage) {
+          const destSelect = document.getElementById("destination");
+          if (destSelect) destSelect.value = selectedPackage;
+        }
+      };
+    </script>
   </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
