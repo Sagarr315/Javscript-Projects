@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link href="style.css" rel="stylesheet" />
+    <script src="script.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css"
@@ -444,23 +446,7 @@
 
     <!--dark and light theme using js -->
     <script>
-      const toggleBtns = document.querySelectorAll(".theme-toggle");
-      const body = document.body;
-
-      toggleBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          body.classList.toggle("dark-mode");
-
-          toggleBtns.forEach((icon) => {
-            if (body.classList.contains("dark-mode")) {
-              icon.classList.replace("bx-moon", "bx-sun");
-            } else {
-              icon.classList.replace("bx-sun", "bx-moon");
-            }
-          });
-        });
-      });
-
+     
       // to show the navbar
       const menuToggle = document.getElementById("menu-toggle");
       const mobileNav = document.getElementById("mobileNav");
