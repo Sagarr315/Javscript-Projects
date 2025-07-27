@@ -22,6 +22,8 @@ This repository contains a collection of front-end practice projects built using
 
 📂 Folder: `/weather-app`  
 🔧 Tech: HTML, CSS, Bootstrap, JavaScript, OpenWeather API
+ - 🔗 **Live Demo:** [https://sagarr315.github.io/Javscript-Projects/Weather-App/](https://sagarr315.github.io/Javscript-Projects/Weather-App/)
+
 
 ---
 
