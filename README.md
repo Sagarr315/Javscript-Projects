@@ -12,6 +12,7 @@ This repository contains a collection of front-end practice projects built using
 
 📂 Folder: `/travel-booking-site`  
 🔧 Tech: HTML, CSS, Bootstrap 5, JavaScript
+- 🔗 **Live Demo:** [https://sagarr315.github.io/Javscript-Projects/Travel-Booking-Site/](https://sagarr315.github.io/Javscript-Projects/Travel-Booking-Site/)
 
 ---
 
