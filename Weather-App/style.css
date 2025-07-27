@@ -1,3 +1,11 @@
+/* style forthe registartion page*/
+.register-card {
+  max-width: 400px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 body {
   margin: 0;
   font-family: "Book Antiqua", Palatino, serif;
@@ -7,4 +15,37 @@ body {
     background-color:#D8D8D9;
     
     
+}
+
+/* Base dark theme */
+.dark-theme {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Header + Footer */
+.dark-theme .header,
+.dark-theme .footer {
+  background-color: #1f1f1f !important;
+  color: #f1f1f1;
+}
+
+/* Navbar links */
+.dark-theme .nav-link {
+  color: #f1f1f1 !important;
+}
+
+/* Input fields */
+.dark-theme input[type="search"] {
+  background-color: #2b2b2b !important;
+  color: #f1f1f1 !important;
+}
+
+/* Icons */
+.dark-theme .bi {
+  color: #f1f1f1 !important;
+}
+
+.dark-theme input[type="search"]::placeholder {
+  color: white;
 }
