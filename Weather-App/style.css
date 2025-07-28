@@ -13,9 +13,12 @@ body {
 
 .nav_item_hover:hover{
     background-color:#D8D8D9;
-    
-    
 }
+
+.dark-theme .nav_item_hover:hover{
+    background-color:#3A3A3A;
+}
+
 
 /* Base dark theme */
 .dark-theme {
