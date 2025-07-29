@@ -47,15 +47,20 @@
         style="width: 43%"
       >
         <i
-          class="bi bi-search position-absolute"
+          class="bi bi-search position-absolute search-btn"
           style="left: 20px; color: gray"
+            id="search-btn"
         ></i>
         <input
           type="search"
           class="form-control w-100 rounded-pill"
+          id="search-input"
           placeholder="Search..."
+          list="history-list"
           style="padding-left: 45px; background-color: #d8d8d9"
+          
         />
+      
       </div>
 
       <!-- Navbar Items -->
@@ -96,30 +101,56 @@
         </ul>
       </div>
     </div>
+    
+    <div id="weather-top" class="mt-4"></div>
 
-    <div class=" container my-5  bg-white" style="height: 450px;">
-      <div class="text-center display-6 text-dark ">
-        <h1>Your current weather</h1>
+
+    <div class="container my-4" style="height: 350px">
+      <div class="current-weather text-center display-6">
+        <h1 class="fw-bold"> Current Weather In Your City</h1>
       </div>
-     <div class="row justify-content-center">
-       <div class="card col-6 justify-content-center aslign-items-center ">
-        <h1>Weather Details</h1>
-        <p id="cityname" >City name</p>
-        <p id="temperature">temperature</p>
-        <p id="weathercondition">weathercondition(e.g,suny ,rainy)</p>
-        <p >Weather Icon</p>
-        <p id="humidity">humidity</p>
-        <p id="wind">Wind Speed</p>
-        <p id="Pressure"> Pressure</p>
+      <div class="row justify-content-center">
+        <div
+          class="current-weather-card card col-4 justify-content-center aslign-items-center"
+        >
+          <p>
+            <span><i class="bi bi-geo-alt-fill me-2 "></i></span
+            ><span id="cityname">City name</span>
+          </p>
+          <p id="temperature">temperature</p>
+          <p id="weathercondition">
+            <img
+              id="weathericon"
+              src=""
+              alt=""
+              title=""
+              style="width: 50px; vertical-align: middle"
+            />
+            <span id="condition-text">Weather</span>
+          </p>
+          <p id="humidity">humidity</p>
+          <p id="wind">Wind Speed</p>
+        </div>
       </div>
-     </div>
+    </div>
+
+ <div class="d-flex justify-content-center align-items-center display-4 fw-bold">5 Days Forecast</div>
+
+    <!-- Forecast Container -->
+    <div id="forecast-container" class="forecast-grid my-4">
+      <!-- JS will insert forecast cards here -->
+    </div>
+
+    <!-- Error Box (hidden by default) -->
+    <div id="error-box" class="error-alert" style="display: none">
+      City not found, please try again
     </div>
 
     <!--fotter section -->
     <div
       class="footer d-flex flex-column justify-content-center align-items-center w-100"
       style="
-        position: fixed;
+        position: relative;
         bottom: 0;
         background-color: #f1f1f1;
         padding: 10px;
