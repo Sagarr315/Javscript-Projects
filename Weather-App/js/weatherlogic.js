@@ -1,82 +1,123 @@
-// Wait until the full HTML document is loaded
 document.addEventListener("DOMContentLoaded", function () {
-
-  // 🔹 Step 1: Grab all the DOM elements that will be updated with weather info
-  const cityElem      = document.getElementById("cityname");
-  const tempElem      = document.getElementById("temperature");
+  const cityElem = document.getElementById("cityname");
+  const tempElem = document.getElementById("temperature");
   const conditionElem = document.getElementById("weathercondition");
-  const humidityElem  = document.getElementById("humidity");
-  const windElem      = document.getElementById("wind");
-  const pressureElem  = document.getElementById("pressure");
+  const humidityElem = document.getElementById("humidity");
+  const windElem = document.getElementById("wind");
+  const forecastContainer = document.getElementById("forecast-container");
+  const errorBox = document.getElementById("error-box");
 
-  // 🔹 Step 2: Your OpenWeather API key
   const weatherApiKey = "021d0942318aedf13f9044edb7e59fab";
 
-  // 🔹 Step 3: Check if the browser supports geolocation
   if (navigator.geolocation) {
-
-    // Try to get user's current location (latitude and longitude)
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords;
 
         try {
-          // 🔹 Step 4: Use reverse geocoding to get city/state from lat/lon
+          // 🔹 Reverse geocoding to get city name
           const reverseGeoURL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${weatherApiKey}`;
           const geoRes = await fetch(reverseGeoURL);
           const geoData = await geoRes.json();
 
-          // Check if location data is returned
           if (!geoData || geoData.length === 0) {
             throw new Error("No location data found");
           }
 
-          // 🔹 Step 5: Extract city and state name
           const city = geoData[0].name;
           const state = geoData[0].state;
           const displayLocation = `${city}, ${state}`;
 
-          // 🔹 Step 6: Show the city + state in the UI
           if (cityElem) cityElem.innerText = displayLocation;
 
-          // 🔹 Step 7: Fetch weather data using the city name
+          // 🔹 Current weather fetch
           const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}&units=metric`;
           const weatherRes = await fetch(weatherUrl);
           const weatherData = await weatherRes.json();
 
-          console.log("🌤️ Weather response:", weatherData);
-
-          // 🔹 Step 8: Handle API errors
           if (weatherData.cod !== 200) {
-            console.error("❌ Weather API error:", weatherData.message);
-            if (cityElem) cityElem.innerText = `Weather error: ${weatherData.message}`;
-            return;
+            throw new Error(weatherData.message);
           }
 
-          // 🔹 Step 9: Update UI with weather data
-          if (tempElem)      tempElem.innerText      = `${weatherData.main.temp} °C`;
-          if (conditionElem) conditionElem.innerText = weatherData.weather[0].main;
-          if (humidityElem)  humidityElem.innerText  = `${weatherData.main.humidity}%`;
-          if (windElem)      windElem.innerText      = `${weatherData.wind.speed} m/s`;
-          if (pressureElem)  pressureElem.innerText  = `${weatherData.main.pressure} hPa`;
+          tempElem.innerText = `🌡️ ${weatherData.main.temp} °C`;
+          const iconUrl = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+          const conditionIcon = document.getElementById("weathericon");
+          const conditionText = document.getElementById("condition-text");
 
+          conditionIcon.src = iconUrl;
+          conditionIcon.alt = weatherData.weather[0].description;
+          conditionIcon.title = weatherData.weather[0].description;
+          conditionText.innerText = `${weatherData.weather[0].main} (${weatherData.weather[0].description})`;
+
+          humidityElem.innerText = `💧 Humidity: ${weatherData.main.humidity}%`;
+          windElem.innerText = `🌬️ Wind: ${weatherData.wind.speed} m/s`;
+
+          // 🔹 5-Day Forecast
+          const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherApiKey}&units=metric`;
+          const forecastRes = await fetch(forecastUrl);
+          const forecastData = await forecastRes.json();
+
+          if (forecastData.cod !== "200") {
+            throw new Error(forecastData.message);
+          }
+
+          forecastContainer.innerHTML = "";
+
+          let daysAdded = 0;
+          let lastDate = "";
+
+          forecastData.list.forEach((item) => {
+            const date = new Date(item.dt_txt);
+            const dayName = date.toLocaleDateString("en-US", {
+              weekday: "short",
+            });
+
+            if (
+              date.getHours() === 12 &&
+              dayName !== lastDate &&
+              daysAdded < 5
+            ) {
+              lastDate = dayName;
+              daysAdded++;
+
+              const icon = `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+              const desc = item.weather[0].main;
+              const fullDesc = item.weather[0].description;
+              const minTemp = Math.round(item.main.temp_min);
+              const maxTemp = Math.round(item.main.temp_max);
+              const humidity = item.main.humidity;
+              const windSpeed = item.wind.speed;
+
+              const card = document.createElement("div");
+              card.className = "forecast-card";
+              card.innerHTML = `
+              <h4>${dayName}</h4>
+              <img src="${icon}" alt="${desc}" title="${fullDesc}" />
+              <p>🌡️ ${minTemp}° / ${maxTemp}°C</p>
+              <p>${desc}</p>
+              <p>💧 ${humidity}%</p>
+              <p>🌬️ ${windSpeed} m/s</p>
+            `;
+              forecastContainer.appendChild(card);
+            }
+          });
         } catch (err) {
-          // 🔹 Step 10: Handle errors (API failed or bad data)
-          console.error("Error fetching data:", err);
-          if (cityElem) cityElem.innerText = "Error loading weather";
+          console.error("Error:", err.message);
+          if (errorBox) {
+            errorBox.style.display = "block";
+            errorBox.innerText = ` ${err.message}`;
+          } else {
+            cityElem.innerText = "Error fetching weather data";
+          }
         }
       },
-
-      // 🔹 If user denies location access or an error occurs
       (err) => {
         console.error("Geolocation error:", err);
-        if (cityElem) cityElem.innerText = "Permission denied";
+        cityElem.innerText = "Location access denied.";
       }
     );
-
   } else {
-    // 🔹 Geolocation not supported on this browser
-    console.warn("Geolocation not supported");
-    if (cityElem) cityElem.innerText = "Geolocation not supported";
+    cityElem.innerText = "Geolocation not supported.";
   }
+  
 });
