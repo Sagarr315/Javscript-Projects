@@ -7,14 +7,20 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 body {
+ 
   margin: 0;
   font-family: "Book Antiqua", Palatino, serif;
 }
-
 .nav_item_hover:hover {
   background-color: #d8d8d9;
 }
 
+.icon-theme {
+  color: #212529;
+}
+.dark-theme .icon-theme {
+  color: white;
+}
 .dark-theme .nav_item_hover:hover {
   background-color: #3a3a3a;
 }
@@ -109,6 +115,7 @@ body {
 
 .forecast-card:hover {
   transform: scale(1.05);
+
 }
 
 .dark-theme .forecast-card {
@@ -123,4 +130,86 @@ body {
   margin-top: 20px;
   text-align: center;
   font-weight: bold;
+}
+
+.fade-in {
+  animation: fadeIn 3s ease-in-out;
+  background-color: #d8d8d9;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardstyle {
+  background-color: #f1f1f1;
+}
+
+/*about us and contact us */
+/* === Shared Section Styles === */
+.info-section {
+  background-color: #f1f1f1;
+  color: #212529;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.info-section .section-title {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.info-section .section-text {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === Contact Form === */
+.contact-form .form-control {
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  border-radius: 20px;
+}
+
+/* === Dark Mode Support === */
+.dark-theme .info-section {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .form-control {
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.dark-theme .form-control::placeholder {
+  color: #aaa;
+}
+
+.dark-theme .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.dark-theme .btn-primary:hover {
+  background-color: #0056b3;
 }
