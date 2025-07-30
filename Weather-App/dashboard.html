@@ -8,6 +8,7 @@
     <script src="js/weatherlogic.js" defer></script>
     <script src="js/geolocation.js" defer></script>
     <script src="js/themetoggle.js" defer></script>
+    <script src="js/searchweather.js" defer></script>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
@@ -30,11 +31,11 @@
     </div>
     <!--header-->
     <div
-      class="d-flex align-items-center justify-content-between px-3 header"
+      class="d-flex align-items-center justify-content-between header"
       style="background-color: #f1f1f1; height: 58px"
     >
       <!-- Location Box -->
-      <div class="d-flex align-items-center" style="width: 23%">
+      <div class="d-flex align-items-center ms-2" style="max-width: 23%">
         <i class="bi bi-geo-alt-fill me-2" style="font-size: 20px"></i>
         <span id="user-location" class="fw-bold" style="font-size: 18px"
           >Detecting...</span
@@ -43,30 +44,29 @@
 
       <!-- Search Bar -->
       <div
-        class="position-relative d-flex align-items-center justify-content-center"
-        style="width: 43%"
+        class="nav position-relative d-flex align-items-center px-2 justify-content-center"
+        style="min-width: 43%"
       >
         <i
-          class="bi bi-search position-absolute search-btn"
+          class="nav bi bi-search position-absolute search-btn"
           style="left: 20px; color: gray"
-            id="search-btn"
+          id="search-btn"
         ></i>
         <input
           type="search"
-          class="form-control w-100 rounded-pill"
+          class="nav form-control w-100 rounded-pill"
           id="search-input"
           placeholder="Search..."
           list="history-list"
-          style="padding-left: 45px; background-color: #d8d8d9"
-          
+          style="padding-left: 35px; background-color: #d8d8d9"
         />
-      
+        <datalist id="history-list"></datalist>
       </div>
 
       <!-- Navbar Items -->
       <div
-        class="d-flex align-items-center justify-content-end"
-        style="width: 34%"
+        class="nav d-flex align-items-center justify-content-end me-2"
+        style="max-width: 34%"
       >
         <ul class="nav gap-3 m-0">
           <li class="nav-item">
@@ -79,14 +79,14 @@
           <li class="nav-item">
             <a
               class="nav-link fw-semibold nav_item_hover rounded-pill text-dark"
-              href="#"
+              href="#about"
               >About us</a
             >
           </li>
           <li class="nav-item">
             <a
               class="nav-link fw-semibold nav_item_hover rounded-pill text-dark"
-              href="#"
+              href="#contact"
               >Contact us</a
             >
           </li>
@@ -101,20 +101,20 @@
         </ul>
       </div>
     </div>
-    
+
+    <!--search city-->
     <div id="weather-top" class="mt-4"></div>
 
-
-    <div class="container my-4" style="height: 350px">
+    <div class="container my-4" style="min-height: 350px">
       <div class="current-weather text-center display-6">
-        <h1 class="fw-bold"> Current Weather In Your City</h1>
+        <h1 class="fw-bold">Current Weather In Your City</h1>
       </div>
       <div class="row justify-content-center">
         <div
-          class="current-weather-card card col-4 justify-content-center aslign-items-center"
+          class="current-weather-card card col-12 col-sm-6 col-md-4 justify-content-center aslign-items-center"
         >
           <p>
-            <span><i class="bi bi-geo-alt-fill me-2 "></i></span
+            <span><i class="bi bi-geo-alt-fill me-2"></i></span
             ><span id="cityname">City name</span>
           </p>
           <p id="temperature">temperature</p>
@@ -134,7 +134,11 @@
       </div>
     </div>
 
- <div class="d-flex justify-content-center align-items-center display-4 fw-bold">5 Days Forecast</div>
+    <div
+      class="d-flex justify-content-center align-items-center display-4 fw-bold"
+    >
+      5 Days Forecast
+    </div>
 
     <!-- Forecast Container -->
     <div id="forecast-container" class="forecast-grid my-4">
@@ -146,31 +150,80 @@
       City not found, please try again
     </div>
 
+    <!-- About Us Section -->
+    <div id="about" class="info-section container my-5 py-4">
+      <h2 class="section-title text-center mb-4">About Us</h2>
+      <p class="section-text text-center">
+        Welcome to Weather-website – your reliable source for accurate and real-time
+        weather updates. Whether you’re planning your day, a trip, or just
+        curious about your city’s climate, we’ve got you covered. Our mission is
+        to make weather data simple, fast, and accessible for everyone.
+      </p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div id="contact" class="info-section container my-5 py-4">
+      <h2 class="section-title text-center mb-4">Contact Us</h2>
+      <form class="contact-form row g-3 justify-content-center">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Your Name"
+            required
+          />
+        </div>
+        <div class="col-md-6">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Your Email"
+            required
+          />
+        </div>
+        <div class="col-12">
+          <textarea
+            class="form-control"
+            rows="4"
+            placeholder="Your Message"
+            required
+          ></textarea>
+        </div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary px-4">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+
     <!--fotter section -->
-    <div
-      class="footer d-flex flex-column justify-content-center align-items-center w-100"
-      style="
-        position: relative;
-        bottom: 0;
-        background-color: #f1f1f1;
-        padding: 10px;
-        font-size: 20px;
-      "
-    >
-      <div class="fw-semibold">Follow Us On</div>
-      <div class="d-flex gap-3">
-        <a href="https://www.instagram.com" style="color: black"
-          ><i class="bi bi-instagram"></i
-        ></a>
-        <a href="https://www.facebook.com" style="color: black"
-          ><i class="bi bi-facebook"></i
-        ></a>
-        <a href="https://www.twitter.com" style="color: black"
-          ><i class="bi bi-twitter-x"></i
-        ></a>
-      </div>
-      <div class="fw-semibold">
-        © All rights reserved. Developed by Sagar Bhor.
+    <div class="container-fluid p-0">
+      <div
+        class="footer d-flex flex-column justify-content-center align-items-center"
+        style="
+          position: relative;
+          bottom: 0;
+          background-color: #f1f1f1;
+          padding: 10px;
+          font-size: 20px;
+        "
+      >
+        <div class="fw-semibold">Follow Us On</div>
+        <div class="d-flex gap-3">
+          <a href="https://www.instagram.com" class="icon-theme"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a href="https://www.facebook.com" class="icon-theme"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="https://www.twitter.com" class="icon-theme"
+            ><i class="bi bi-twitter-x"></i
+          ></a>
+        </div>
+        <div class="fw-semibold">
+          © All rights reserved. Developed by Sagar Bhor.
+        </div>
       </div>
     </div>
   </body>
