@@ -65,8 +65,8 @@
 
       <!-- Navbar Items -->
       <div
-        class="nav d-flex align-items-center justify-content-end me-2"
-        style="max-width: 34%"
+        class="nav d-flex d-none d-lg-block align-items-center justify-content-end me-2"
+        style="min-width: 10%"
       >
         <ul class="nav gap-3 m-0">
           <li class="nav-item">
@@ -93,12 +93,24 @@
           <li class="nav-item">
             <a
               class="nav-link fw-semibold nav_item_hover rounded-pill text-dark"
-              id="dark-toggle"
+             
             >
-              <i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+              <i class="bi bi-moon-stars-fill theme-toggle" ></i>
             </a>
           </li>
         </ul>
+      </div>
+      <div class="d-flex d-lg-none align-items-center gap-3 me-3 fs-4">
+        <!-- Dark Mode Toggle Button -->
+        <a
+          class="nav-link fw-semibold nav_item_hover rounded-pill text-dark"
+          
+          style="cursor: pointer"
+        >
+          <i class="bi bi-moon-stars-fill theme-toggle"></i>
+      </a>
+
+        
       </div>
     </div>
 
@@ -154,10 +166,11 @@
     <div id="about" class="info-section container my-5 py-4">
       <h2 class="section-title text-center mb-4">About Us</h2>
       <p class="section-text text-center">
-        Welcome to Weather-website – your reliable source for accurate and real-time
-        weather updates. Whether you’re planning your day, a trip, or just
-        curious about your city’s climate, we’ve got you covered. Our mission is
-        to make weather data simple, fast, and accessible for everyone.
+        Welcome to Weather-website – your reliable source for accurate and
+        real-time weather updates. Whether you’re planning your day, a trip, or
+        just curious about your city’s climate, we’ve got you covered. Our
+        mission is to make weather data simple, fast, and accessible for
+        everyone.
       </p>
     </div>
 
